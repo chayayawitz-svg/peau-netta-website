@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>peau.netta - קביעת תור</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>peau.netta</h1>
+        <nav>
+            <a href="index.html">דף הבית</a> |
+            <a href="appointments.html">קביעת תור</a> |
+            <a href="products.html">חנות מוצרים</a> |
+            <a href="login.html">התחברות</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>קביעת תור לטיפול</h2>
+        <p>בחרי את סוג הטיפול והמועד הנוח לך:</p>
+
+        <form class="login-form">
+            <label>סוג טיפול:</label>
+            <select required>
+                <option value="">בחרי טיפול...</option>
+                <option value="facial">טיפול פנים קלאסי</option>
+                <option value="acne">טיפול פנים לאקנה</option>
+                <option value="anti-aging">טיפול אנטי-אייג'ינג</option>
+                <option value="consultation">ייעוץ ואבחון עור</option>
+            </select>
+
+            <label>תאריך מבוקש:</label>
+            <input type="date" required>
+
+            <label>שעה מבוקשת:</label>
+            <input type="time" required>
+
+            <button type="submit">שלחי בקשה לתור</button>
+        </form>
+    </main>
+
+</body>
+</html>
