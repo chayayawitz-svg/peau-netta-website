@@ -11,21 +11,88 @@
     <header>
         <h1>peau.netta</h1>
         <nav>
-            <a href="index.html">דף הבית</a> |
             <a href="appointments.html">קביעת תור</a> |
             <a href="products.html">חנות מוצרים</a> |
-            <a href="login.html">התחברות</a>
+            <!-- שינינו פה: במקום לעבור דף, הקישור פותח את התפריט הצדדי -->
+            <a href="#" onclick="openSidebar()">התחברות</a>
         </nav>
     </header>
 
     <main>
         <h2>ברוכים הבאים!</h2>
         <p>כאן תוכלו לקבוע תורים, לרכוש מוצרים ולהצטרף למועדון הלקוחות שלנו.</p>
-        
         <a href="appointments.html">
             <button>קבעי תור עכשיו</button>
         </a>
     </main>
 
+    <!-- התפריט הצדדי (מוסתר כברירת מחדל) -->
+    <div id="loginSidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">✕</button>
+        
+        <!-- אזור התחברות (לקוחה חוזרת) -->
+        <div id="loginSection" class="form-section">
+            <h2>התחברות</h2>
+            <p>שמחים שחזרת אלינו!</p>
+            <form class="side-form">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="טלפון נייד" required>
+                
+                <!-- כאן אמור להופיע קוד ה-SMS אחרי הלחיצה -->
+                <div id="otpInput" style="display: none; margin-top: 15px;">
+                    <label>הקלידי את הקוד שקיבלת לנייד:</label>
+                    <input type="text" placeholder="123456">
+                </div>
+
+                <button type="button" onclick="showOtp()">שלחו לי קוד SMS</button>
+            </form>
+            <p class="switch-link" onclick="toggleForms('registerSection')">לקוחה חדשה? לחצי כאן להרשמה</p>
+        </div>
+
+        <!-- אזור הרשמה (לקוחה חדשה) -->
+        <div id="registerSection" class="form-section" style="display: none;">
+            <h2>הרשמה למועדון</h2>
+            <p>מלאי את הפרטים כדי שנוכל לפנק אותך!</p>
+            <form class="side-form">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="טלפון נייד" required>
+                <input type="email" placeholder="כתובת אימייל" required>
+                <label>תאריך לידה:</label>
+                <input type="date" required>
+                <button type="button">שמירת פרטים</button>
+            </form>
+            <p class="switch-link" onclick="toggleForms('loginSection')">כבר חברה במועדון? לחצי כאן להתחברות</p>
+        </div>
+    </div>
+
+    <!-- הרקע הכהה מאחורי התפריט -->
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <!-- הקוד שגורם להכל לזוז ולעבוד -->
+    <script>
+        // פתיחת התפריט הצדדי
+        function openSidebar() {
+            document.getElementById("loginSidebar").style.right = "0";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        // סגירת התפריט הצדדי
+        function closeSidebar() {
+            document.getElementById("loginSidebar").style.right = "-400px";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        // מעבר בין הרשמה להתחברות
+        function toggleForms(sectionId) {
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("registerSection").style.display = "none";
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        // הצגת שדה ה-SMS
+        function showOtp() {
+            document.getElementById("otpInput").style.display = "block";
+        }
+    </script>
 </body>
 </html>
