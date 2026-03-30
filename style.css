@@ -1,17 +1,23 @@
 /* הגדרות כלליות לכל הדף */
 body {
     font-family: Arial, sans-serif;
-    background-color: #E5DED8; /* צבע הרקע הבהיר ביותר מהמיתוג */
-    color: #594F45; /* צבע הטקסט הכהה ביותר */
+    background-color: #E5DED8;
+    color: #594F45;
     text-align: center;
     margin: 0;
     padding: 0;
+    /* הוספתי גובה כדי שתוכלי לראות את הגלילה והתפריט הצף */
+    min-height: 150vh; 
 }
 
-/* אזור הכותרת העליונה */
+/* אזור הכותרת העליונה - עכשיו צף ודביק! */
 header {
-    background-color: #AA9C88; /* צבע חום-אפרפר בינוני */
+    background-color: #AA9C88;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -21,7 +27,6 @@ h1 {
     color: #594F45;
 }
 
-/* עיצוב הקישורים למעלה */
 nav a {
     text-decoration: none;
     color: #594F45;
@@ -29,10 +34,10 @@ nav a {
     margin: 0 10px;
 }
 
-/* עיצוב הכפתור */
+/* עיצוב הכפתור הכללי */
 button {
-    background-color: #6B6151; /* צבע כהה לכפתור שיבלוט */
-    color: #E5DED8; /* טקסט בהיר על הכפתור */
+    background-color: #6B6151;
+    color: #E5DED8;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -41,17 +46,16 @@ button {
     margin-top: 20px;
 }
 
-/* מה קורה כשמרחפים מעל הכפתור עם העכבר */
 button:hover {
-    background-color: #594F45; /* הופך לכהה יותר בריחוף */
+    background-color: #594F45;
 }
 
-/* עיצוב טופס ההרשמה וקביעת התורים */
+/* טפסים רגילים (כמו בקביעת תורים) */
 .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* מרווח בין השדות */
+    gap: 15px;
     margin-top: 30px;
 }
 
@@ -69,22 +73,19 @@ button:hover {
     color: #594F45;
 }
 
-/* --- עיצוב חדש: חנות המוצרים --- */
-
-/* הגריד שמסדר את המוצרים אחד ליד השני */
+/* --- חנות המוצרים --- */
 .products-grid {
     display: flex;
-    flex-wrap: wrap; /* מאפשר שבירת שורות אם אין מקום במסך */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* מרווח בין כרטיסיות המוצרים */
+    gap: 20px;
     margin-top: 30px;
     padding: 0 20px;
     margin-bottom: 50px;
 }
 
-/* העיצוב של כרטיסיית מוצר בודדת */
 .product-card {
-    background-color: #fdfaf6; /* צבע קצת יותר בהיר מהרקע כדי שיבלוט */
+    background-color: #fdfaf6;
     border: 1px solid #AA9C88;
     border-radius: 8px;
     padding: 20px;
@@ -94,7 +95,6 @@ button:hover {
     align-items: center;
 }
 
-/* המקום בו תהיה התמונה בעתיד */
 .product-image {
     width: 100%;
     height: 180px;
@@ -125,14 +125,12 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* דוחף את הכפתור תמיד לתחתית הכרטיסייה */
 .product-card button {
     margin-top: auto; 
     width: 100%;
 }
-/* --- עיצוב התפריט הצדדי (התחברות/הרשמה) --- */
 
-/* המסך הכהה שמופיע מאחורי התפריט */
+/* --- עיצוב התפריט הצדדי (התחברות/הרשמה) --- */
 .overlay {
     display: none;
     position: fixed;
@@ -144,24 +142,22 @@ button:hover {
     z-index: 999;
 }
 
-/* התפריט הצדדי עצמו */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -400px; /* מוסתר מחוץ למסך כברירת מחדל */
+    right: -400px; /* מוסתר כברירת מחדל */
     width: 350px;
     height: 100%;
     background-color: #fdfaf6;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    transition: right 0.4s ease; /* אנימציית ההחלקה */
+    transition: right 0.4s ease;
     z-index: 1000;
     padding: 30px;
     box-sizing: border-box;
-    text-align: right; /* יישור הטקסט לימין */
+    text-align: right;
     overflow-y: auto;
 }
 
-/* כפתור הסגירה (X) */
 .close-btn {
     background: none;
     color: #594F45;
@@ -180,7 +176,6 @@ button:hover {
     color: #000;
 }
 
-/* עיצוב הטפסים בתוך התפריט הצדדי */
 .form-section h2 {
     color: #594F45;
     margin-bottom: 5px;
@@ -208,7 +203,6 @@ button:hover {
     margin-top: 10px;
 }
 
-/* קישור המעבר בין הרשמה להתחברות */
 .switch-link {
     color: #6B6151;
     text-decoration: underline;
