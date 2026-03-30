@@ -8,12 +8,13 @@
 </head>
 <body>
 
+    <!-- אזור הכותרת שיישאר דביק למעלה -->
     <header>
         <h1>peau.netta</h1>
         <nav>
             <a href="appointments.html">קביעת תור</a> |
             <a href="products.html">חנות מוצרים</a> |
-            <!-- שינינו פה: במקום לעבור דף, הקישור פותח את התפריט הצדדי -->
+            <!-- לחיצה כאן תפתח את התפריט הצדדי -->
             <a href="#" onclick="openSidebar()">התחברות</a>
         </nav>
     </header>
@@ -38,7 +39,7 @@
                 <input type="text" placeholder="שם מלא" required>
                 <input type="tel" placeholder="טלפון נייד" required>
                 
-                <!-- כאן אמור להופיע קוד ה-SMS אחרי הלחיצה -->
+                <!-- שדה הקוד שמוסתר עד שלוחצים על הכפתור -->
                 <div id="otpInput" style="display: none; margin-top: 15px;">
                     <label>הקלידי את הקוד שקיבלת לנייד:</label>
                     <input type="text" placeholder="123456">
@@ -68,28 +69,24 @@
     <!-- הרקע הכהה מאחורי התפריט -->
     <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-    <!-- הקוד שגורם להכל לזוז ולעבוד -->
+    <!-- פקודות ה-JavaScript שגורמות לתפריט לעבוד -->
     <script>
-        // פתיחת התפריט הצדדי
         function openSidebar() {
             document.getElementById("loginSidebar").style.right = "0";
             document.getElementById("overlay").style.display = "block";
         }
 
-        // סגירת התפריט הצדדי
         function closeSidebar() {
             document.getElementById("loginSidebar").style.right = "-400px";
             document.getElementById("overlay").style.display = "none";
         }
 
-        // מעבר בין הרשמה להתחברות
         function toggleForms(sectionId) {
             document.getElementById("loginSection").style.display = "none";
             document.getElementById("registerSection").style.display = "none";
             document.getElementById(sectionId).style.display = "block";
         }
 
-        // הצגת שדה ה-SMS
         function showOtp() {
             document.getElementById("otpInput").style.display = "block";
         }
