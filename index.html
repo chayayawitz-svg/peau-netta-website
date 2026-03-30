@@ -8,42 +8,66 @@
 </head>
 <body>
 
-    <!-- ההדר הממורכז החדש שלנו -->
     <header>
-        <!-- הלוגו בגדול באמצע! שימי לב שכאן אנחנו קוראים לתמונה logo.png.png -->
         <div class="header-logo">
             <a href="index.html">
-                <img src="logo.png.png" alt="לוגו PEAU NETTE" class="main-logo">
+                <img src="logo.png" alt="לוגו PEAU NETTE" class="main-logo">
             </a>
         </div>
         
-        <!-- התפריט מתחת ללוגו -->
         <nav class="header-nav">
             <a href="index.html">עמוד הבית</a>
             <a href="products.html">קולקציית מוצרים</a>
             <a href="appointments.html">קביעת תור</a>
             <a href="#footer">צור קשר</a>
             
-            <!-- כפתור אזור אישי שיושב בצד של התפריט הממורכז -->
             <button class="login-btn-nav" onclick="openSidebar()">אזור אישי</button>
         </nav>
     </header>
 
     <main>
         <h2>העור הנקי שלך מתחיל כאן.</h2>
-        <p style="font-size: 1.2em; color: #6B6151;">קבעי תורים, רכשי מוצרים והצטרפי למועדון הלקוחות שלנו.</p>
+        <p style="font-size: 1.2em; color: #6B6151; margin-bottom: 20px;">קבעי תורים, רכשי מוצרים והצטרפי למועדון הלקוחות שלנו.</p>
         <a href="appointments.html">
             <button class="primary-btn">לקביעת תור</button>
         </a>
     </main>
 
-    <!-- התפריט הצדדי (השארתי אותו כפי שהיה כדי שימשיך לעבוד) -->
+    <!-- התפריט הצדדי -->
     <div id="loginSidebar" class="sidebar">
-        <!-- ... (השאירי כאן את הקוד של התפריט הצדדי שיש לך כרגע) ... -->
+        <button class="close-btn" onclick="closeSidebar()">✕</button>
+        
+        <div id="loginSection" class="form-section">
+            <h2>התחברות</h2>
+            <p>שמחים שחזרת אלינו!</p>
+            <form class="side-form">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="טלפון נייד" required>
+                <div id="otpInput" style="display: none; margin-top: 15px;">
+                    <label>הקלידי את הקוד שקיבלת לנייד:</label>
+                    <input type="text" placeholder="123456">
+                </div>
+                <button type="button" onclick="showOtp()">שלחו לי קוד SMS</button>
+            </form>
+            <p class="switch-link" onclick="toggleForms('registerSection')">לקוחה חדשה? לחצי כאן להרשמה</p>
+        </div>
+
+        <div id="registerSection" class="form-section" style="display: none;">
+            <h2>הרשמה למועדון</h2>
+            <p>מלאי את הפרטים כדי שנוכל לפנק אותך!</p>
+            <form class="side-form">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="טלפון נייד" required>
+                <input type="email" placeholder="כתובת אימייל" required>
+                <label style="color: #594F45; font-weight: bold; text-align: right;">תאריך לידה:</label>
+                <input type="date" required>
+                <button type="button">שמירת פרטים</button>
+            </form>
+            <p class="switch-link" onclick="toggleForms('loginSection')">כבר חברה במועדון? לחצי כאן להתחברות</p>
+        </div>
     </div>
     <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-    <!-- פוטר מותאם וצבעוני יותר -->
     <footer id="footer">
         <div class="footer-col">
             <h4>תפריט ראשי</h4>
@@ -58,7 +82,7 @@
             <ul>
                 <li><a href="#">הצהרת נגישות</a></li>
                 <li><a href="#">תקנון אתר</a></li>
-                <li><a href="#">מדיניות משלוחים, ביטולים והחזרות</a></li>
+                <li><a href="#">מדיניות משלוחים וביטולים</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -70,14 +94,28 @@
             </ul>
         </div>
         <div class="footer-col" style="text-align: left;">
-            <img src="logo.png" alt="לוגו PEAU NETTE" style="height: 60px; margin-bottom: 10px; filter: brightness(0) invert(1);"> <!-- עושה את הלוגו לבן כדי שיבלוט על הרקע הכהה -->
+            <img src="logo.png" alt="לוגו PEAU NETTE" style="height: 70px; margin-bottom: 10px; filter: brightness(0) invert(1);">
             <p style="font-size: 14px; margin-top: 5px;">REFRESH . REVIVE . RADIATE</p>
         </div>
     </footer>
 
-    <!-- הסקריפט לתפריט הצדדי -->
     <script>
-        // ... (השאירי כאן את פונקציות ה-JavaScript של התפריט הצדדי שיש לך כרגע) ...
+        function openSidebar() {
+            document.getElementById("loginSidebar").style.right = "0";
+            document.getElementById("overlay").style.display = "block";
+        }
+        function closeSidebar() {
+            document.getElementById("loginSidebar").style.right = "-400px";
+            document.getElementById("overlay").style.display = "none";
+        }
+        function toggleForms(sectionId) {
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("registerSection").style.display = "none";
+            document.getElementById(sectionId).style.display = "block";
+        }
+        function showOtp() {
+            document.getElementById("otpInput").style.display = "block";
+        }
     </script>
 </body>
 </html>
