@@ -28,6 +28,7 @@
         <p style="color: #6B6151; font-size: 1.1em;">בחרי את סוג הטיפול והמועד הנוח לך:</p>
 
         <form class="appointment-form">
+            <!-- קבוצת שדה: סוג טיפול -->
             <div class="form-group">
                 <label>סוג טיפול:</label>
                 <select required>
@@ -39,54 +40,36 @@
                 </select>
             </div>
 
+            <!-- קבוצת שדה: תאריך -->
             <div class="form-group">
                 <label>תאריך מבוקש:</label>
                 <input type="date" required>
             </div>
 
+            <!-- קבוצת שדה: שעה -->
             <div class="form-group">
                 <label>שעה מבוקשת:</label>
                 <input type="time" required>
             </div>
 
-            <button type="submit" class="primary-btn">שליחת בקשה לשיריון התור</button>
+            <!-- כפתור שליחה מעוצב -->
+            <button type="submit" class="primary-btn">שלחי בקשה לשיריון התור</button>
         </form>
     </main>
 
-    <!-- התפריט הצדדי -->
+    <!-- תפריט צדדי (מוסתר) -->
     <div id="loginSidebar" class="sidebar">
-        <button class="close-btn" onclick="closeSidebar()">✕</button>
-        <div id="loginSection" class="form-section">
-            <h2>התחברות</h2>
-            <p>שמחים שחזרת אלינו!</p>
-            <form class="side-form">
-                <input type="text" placeholder="שם מלא" required>
-                <input type="tel" placeholder="טלפון נייד" required>
-                <div id="otpInput" style="display: none; margin-top: 15px;">
-                    <label>הקלידי את הקוד שקיבלת לנייד:</label>
-                    <input type="text" placeholder="123456">
-                </div>
-                <button type="button" onclick="showOtp()">שלחו לי קוד SMS</button>
-            </form>
-            <p class="switch-link" onclick="toggleForms('registerSection')">לקוחה חדשה? לחצי כאן להרשמה</p>
-        </div>
-        <div id="registerSection" class="form-section" style="display: none;">
-            <h2>הרשמה למועדון</h2>
-            <p>מלאי את הפרטים כדי שנוכל לפנק אותך!</p>
-            <form class="side-form">
-                <input type="text" placeholder="שם מלא" required>
-                <input type="tel" placeholder="טלפון נייד" required>
-                <input type="email" placeholder="כתובת אימייל" required>
-                <label style="color: #594F45; font-weight: bold; text-align: right;">תאריך לידה:</label>
-                <input type="date" required>
-                <button type="button">שמירת פרטים</button>
-            </form>
-            <p class="switch-link" onclick="toggleForms('loginSection')">כבר חברה במועדון? לחצי כאן להתחברות</p>
-        </div>
+        <button onclick="closeSidebar()" style="background:none; border:none; font-size:24px; cursor:pointer; position: absolute; top: 15px; left: 15px;">✕</button>
+        <h2 style="margin-top: 20px;">התחברות</h2>
+        <p style="color: #6B6151;">הכניסי פרטים כדי לצפות בתורים שלך</p>
+        <form class="side-form">
+            <input type="text" placeholder="שם מלא" required>
+            <input type="tel" placeholder="מספר טלפון נייד" required>
+            <button type="button">שלחו לי קוד אימות</button>
+        </form>
     </div>
     <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-    <!-- פוטר נקי ללא הלוגו משמאל -->
     <footer id="footer">
         <div class="footer-col">
             <h4>תפריט ראשי</h4>
@@ -101,24 +84,25 @@
             <ul>
                 <li><a href="#">הצהרת נגישות</a></li>
                 <li><a href="#">תקנון אתר</a></li>
-                <li><a href="#">מדיניות משלוחים וביטולים</a></li>
             </ul>
         </div>
         <div class="footer-col">
             <h4>צרו קשר</h4>
-            <ul>
-                <li>05X-XXXXXXX</li>
-                <li>info@peaunette.co.il</li>
-                <li>א'-ה' 08:30 - 19:30</li>
-            </ul>
+            <p>05X-XXXXXXX</p>
+            <p>info@peaunette.co.il</p>
+            <p>א'-ה' 08:30 - 19:30</p>
         </div>
     </footer>
 
     <script>
-        function openSidebar() { document.getElementById("loginSidebar").style.right = "0"; document.getElementById("overlay").style.display = "block"; }
-        function closeSidebar() { document.getElementById("loginSidebar").style.right = "-400px"; document.getElementById("overlay").style.display = "none"; }
-        function toggleForms(sectionId) { document.getElementById("loginSection").style.display = "none"; document.getElementById("registerSection").style.display = "none"; document.getElementById(sectionId).style.display = "block"; }
-        function showOtp() { document.getElementById("otpInput").style.display = "block"; }
+        function openSidebar() { 
+            document.getElementById("loginSidebar").style.right = "0"; 
+            document.getElementById("overlay").style.display = "block"; 
+        }
+        function closeSidebar() { 
+            document.getElementById("loginSidebar").style.right = "-400px"; 
+            document.getElementById("overlay").style.display = "none"; 
+        }
     </script>
 </body>
 </html>
