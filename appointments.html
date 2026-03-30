@@ -25,25 +25,33 @@
 
     <main>
         <h2>קביעת תור לטיפול</h2>
-        <p style="color: #6B6151;">בחרי את סוג הטיפול והמועד הנוח לך:</p>
+        <p style="color: #6B6151; font-size: 1.1em;">בחרי את סוג הטיפול והמועד הנוח לך:</p>
 
-        <form class="side-form" style="width: 100%; max-width: 350px; margin-top: 30px;">
-            <label style="text-align: right; font-weight: bold; color: #594F45;">סוג טיפול:</label>
-            <select required>
-                <option value="">בחרי טיפול...</option>
-                <option value="facial">טיפול פנים קלאסי</option>
-                <option value="acne">טיפול פנים לאקנה</option>
-                <option value="anti-aging">טיפול אנטי-אייג'ינג</option>
-                <option value="consultation">ייעוץ ואבחון עור</option>
-            </select>
+        <!-- הטופס החדש והאלגנטי -->
+        <form class="appointment-form">
+            
+            <div class="form-group">
+                <label>סוג טיפול:</label>
+                <select required>
+                    <option value="" disabled selected>בחרי מתוך הרשימה...</option>
+                    <option value="facial">טיפול פנים קלאסי</option>
+                    <option value="acne">טיפול פנים לאקנה</option>
+                    <option value="anti-aging">טיפול אנטי-אייג'ינג</option>
+                    <option value="consultation">ייעוץ ואבחון עור</option>
+                </select>
+            </div>
 
-            <label style="text-align: right; font-weight: bold; color: #594F45; margin-top: 10px;">תאריך מבוקש:</label>
-            <input type="date" required>
+            <div class="form-group">
+                <label>תאריך מבוקש:</label>
+                <input type="date" required>
+            </div>
 
-            <label style="text-align: right; font-weight: bold; color: #594F45; margin-top: 10px;">שעה מבוקשת:</label>
-            <input type="time" required>
+            <div class="form-group">
+                <label>שעה מבוקשת:</label>
+                <input type="time" required>
+            </div>
 
-            <button type="submit" class="primary-btn" style="width: 100%;">שלחי בקשה לתור</button>
+            <button type="submit" class="primary-btn">שליחת בקשה לשיריון התור</button>
         </form>
     </main>
 
