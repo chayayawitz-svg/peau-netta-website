@@ -11,7 +11,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* מגדיר שהאתר תופס לפחות את כל גובה המסך */
+    min-height: 100vh; 
 }
 
 /* --- הדר (Header) ממורכז וייחודי --- */
@@ -27,7 +27,6 @@ header {
     align-items: center;
 }
 
-/* אזור הלוגו במרכז */
 .header-logo {
     margin-bottom: 20px;
 }
@@ -38,7 +37,6 @@ header {
     display: block;
 }
 
-/* תפריט ניווט ממורכז */
 .header-nav {
     display: flex;
     gap: 40px;
@@ -64,7 +62,6 @@ header {
     transform: translateY(-2px);
 }
 
-/* כפתור אזור אישי בתוך התפריט */
 .login-btn-nav {
     position: absolute;
     right: 20px;
@@ -106,7 +103,6 @@ main h2 {
     color: #594F45;
 }
 
-/* עיצוב כפתור מרכזי */
 button.primary-btn {
     background-color: #594F45;
     color: #E5DED8;
@@ -133,7 +129,7 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: auto; /* זה מה שמכריח את הפוטר להישאר תמיד למטה! */
+    margin-top: auto; 
     text-align: right;
 }
 
@@ -332,4 +328,56 @@ footer {
 
 .product-card button:hover {
     background-color: #594F45;
+}
+
+/* --- עיצוב טופס קביעת תור ייעודי --- */
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+    width: 100%;
+    max-width: 400px; 
+    margin: 40px auto 0; 
+}
+
+.appointment-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: right; 
+    gap: 8px; 
+}
+
+.appointment-form label {
+    font-weight: 600;
+    color: #594F45;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.appointment-form input, 
+.appointment-form select {
+    padding: 15px; 
+    border: 1px solid #AA9C88;
+    border-radius: 8px;
+    font-family: inherit;
+    color: #594F45;
+    background-color: rgba(253, 250, 246, 0.7); 
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.appointment-form input:focus, 
+.appointment-form select:focus {
+    outline: none;
+    border-color: #594F45;
+    background-color: #fdfaf6;
+    box-shadow: 0 0 8px rgba(89, 79, 69, 0.1);
+}
+
+.appointment-form button.primary-btn {
+    margin-top: 15px;
+    width: 100%; 
+    padding: 18px; 
+    font-size: 18px;
+    font-weight: 600;
 }
