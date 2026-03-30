@@ -130,3 +130,95 @@ button:hover {
     margin-top: auto; 
     width: 100%;
 }
+/* --- עיצוב התפריט הצדדי (התחברות/הרשמה) --- */
+
+/* המסך הכהה שמופיע מאחורי התפריט */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* התפריט הצדדי עצמו */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* מוסתר מחוץ למסך כברירת מחדל */
+    width: 350px;
+    height: 100%;
+    background-color: #fdfaf6;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.4s ease; /* אנימציית ההחלקה */
+    z-index: 1000;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: right; /* יישור הטקסט לימין */
+    overflow-y: auto;
+}
+
+/* כפתור הסגירה (X) */
+.close-btn {
+    background: none;
+    color: #594F45;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.close-btn:hover {
+    background: none;
+    color: #000;
+}
+
+/* עיצוב הטפסים בתוך התפריט הצדדי */
+.form-section h2 {
+    color: #594F45;
+    margin-bottom: 5px;
+}
+
+.side-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.side-form input {
+    padding: 12px;
+    border: 1px solid #AA9C88;
+    border-radius: 5px;
+    font-family: inherit;
+    color: #594F45;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.side-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* קישור המעבר בין הרשמה להתחברות */
+.switch-link {
+    color: #6B6151;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.switch-link:hover {
+    color: #594F45;
+    font-weight: bold;
+}
