@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>peau.netta - קביעת תור</title>
+    <title>PEAU NETTE - קביעת תור</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>peau.netta</h1>
-        <nav>
-            <a href="index.html">דף הבית</a> |
-            <a href="appointments.html">קביעת תור</a> |
-            <a href="products.html">חנות מוצרים</a> |
-            <a href="login.html">התחברות</a>
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="logo.png" alt="לוגו PEAU NETTE" class="main-logo">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a href="index.html">עמוד הבית</a>
+            <a href="products.html">קולקציית מוצרים</a>
+            <a href="appointments.html">קביעת תור</a>
+            <a href="#footer">צור קשר</a>
         </nav>
+        <div class="header-icons">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <svg onclick="openSidebar()" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </div>
     </header>
 
-    <main>
-        <h2>קביעת תור לטיפול</h2>
+    <main style="padding: 60px 20px;">
+        <h2 style="font-weight: 300;">קביעת תור לטיפול</h2>
         <p>בחרי את סוג הטיפול והמועד הנוח לך:</p>
 
-        <form class="login-form">
-            <label>סוג טיפול:</label>
+        <form class="side-form" style="max-width: 300px; margin: 0 auto; align-items: center;">
+            <label style="align-self: flex-start; font-weight: bold; color: #594F45;">סוג טיפול:</label>
             <select required>
                 <option value="">בחרי טיפול...</option>
                 <option value="facial">טיפול פנים קלאסי</option>
@@ -32,15 +41,85 @@
                 <option value="consultation">ייעוץ ואבחון עור</option>
             </select>
 
-            <label>תאריך מבוקש:</label>
+            <label style="align-self: flex-start; font-weight: bold; color: #594F45; margin-top: 10px;">תאריך מבוקש:</label>
             <input type="date" required>
 
-            <label>שעה מבוקשת:</label>
+            <label style="align-self: flex-start; font-weight: bold; color: #594F45; margin-top: 10px;">שעה מבוקשת:</label>
             <input type="time" required>
 
             <button type="submit">שלחי בקשה לתור</button>
         </form>
     </main>
 
+    <!-- התפריט הצדדי -->
+    <div id="loginSidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">✕</button>
+        <div id="loginSection" class="form-section">
+            <h2>התחברות</h2>
+            <p>שמחים שחזרת אלינו!</p>
+            <form class="side-form">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="טלפון נייד" required>
+                <div id="otpInput" style="display: none; margin-top: 15px;">
+                    <label>הקלידי את הקוד שקיבלת לנייד:</label>
+                    <input type="text" placeholder="123456">
+                </div>
+                <button type="button" onclick="showOtp()">שלחו לי קוד SMS</button>
+            </form>
+            <p class="switch-link" onclick="toggleForms('registerSection')">לקוחה חדשה? לחצי כאן להרשמה</p>
+        </div>
+        <div id="registerSection" class="form-section" style="display: none;">
+            <h2>הרשמה למועדון</h2>
+            <p>מלאי את הפרטים כדי שנוכל לפנק אותך!</p>
+            <form class="side-form">
+                <input type="text" placeholder="שם מלא" required>
+                <input type="tel" placeholder="טלפון נייד" required>
+                <input type="email" placeholder="כתובת אימייל" required>
+                <label>תאריך לידה:</label>
+                <input type="date" required>
+                <button type="button">שמירת פרטים</button>
+            </form>
+            <p class="switch-link" onclick="toggleForms('loginSection')">כבר חברה במועדון? לחצי כאן להתחברות</p>
+        </div>
+    </div>
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <footer id="footer">
+        <div class="footer-col">
+            <h4>תפריט ראשי</h4>
+            <ul>
+                <li><a href="index.html">עמוד הבית</a></li>
+                <li><a href="products.html">קולקציית מוצרים</a></li>
+                <li><a href="appointments.html">קביעת תור</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>תקנון</h4>
+            <ul>
+                <li><a href="#">הצהרת נגישות</a></li>
+                <li><a href="#">תקנון אתר</a></li>
+                <li><a href="#">מדיניות משלוחים, ביטולים והחזרות</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>צרו קשר</h4>
+            <ul>
+                <li>05X-XXXXXXX</li>
+                <li>info@peaunette.co.il</li>
+                <li>א'-ה' 08:30 - 19:30</li>
+            </ul>
+        </div>
+        <div class="footer-col" style="text-align: left;">
+            <img src="logo.png" alt="לוגו PEAU NETTE" style="height: 50px; margin-bottom: 10px;">
+            <p style="font-size: 14px; margin-top: 5px; color: #6B6151;">REFRESH . REVIVE . RADIATE</p>
+        </div>
+    </footer>
+
+    <script>
+        function openSidebar() { document.getElementById("loginSidebar").style.right = "0"; document.getElementById("overlay").style.display = "block"; }
+        function closeSidebar() { document.getElementById("loginSidebar").style.right = "-400px"; document.getElementById("overlay").style.display = "none"; }
+        function toggleForms(sectionId) { document.getElementById("loginSection").style.display = "none"; document.getElementById("registerSection").style.display = "none"; document.getElementById(sectionId).style.display = "block"; }
+        function showOtp() { document.getElementById("otpInput").style.display = "block"; }
+    </script>
 </body>
 </html>
