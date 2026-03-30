@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>peau.netta - קליניקה לקוסמטיקה</title>
+    <title>PEAU NETTE - קליניקה לקוסמטיקה</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- אזור הכותרת החדש בהשראת האתר המושלם ששלחת -->
     <header>
-        <!-- צד ימין: לוגו -->
         <div class="header-logo">
-            <h1>PEAU NETTE</h1>
+            <a href="index.html">
+                <img src="logo.png" alt="לוגו PEAU NETTE" class="main-logo">
+            </a>
         </div>
         
-        <!-- אמצע: תפריט ניווט -->
         <nav class="header-nav">
             <a href="index.html">עמוד הבית</a>
             <a href="products.html">קולקציית מוצרים</a>
@@ -23,15 +22,9 @@
             <a href="#footer">צור קשר</a>
         </nav>
 
-        <!-- צד שמאל: אייקונים (חיפוש, משתמש להתחברות, סל קניות) -->
         <div class="header-icons">
-            <!-- אייקון חיפוש -->
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            
-            <!-- אייקון משתמש (פותח את ההתחברות מהצד!) -->
             <svg onclick="openSidebar()" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            
-            <!-- אייקון סל קניות -->
             <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
         </div>
     </header>
@@ -44,7 +37,6 @@
         </a>
     </main>
 
-    <!-- התפריט הצדדי (מוסתר כברירת מחדל) -->
     <div id="loginSidebar" class="sidebar">
         <button class="close-btn" onclick="closeSidebar()">✕</button>
         
@@ -54,12 +46,10 @@
             <form class="side-form">
                 <input type="text" placeholder="שם מלא" required>
                 <input type="tel" placeholder="טלפון נייד" required>
-                
                 <div id="otpInput" style="display: none; margin-top: 15px;">
                     <label>הקלידי את הקוד שקיבלת לנייד:</label>
                     <input type="text" placeholder="123456">
                 </div>
-
                 <button type="button" onclick="showOtp()">שלחו לי קוד SMS</button>
             </form>
             <p class="switch-link" onclick="toggleForms('registerSection')">לקוחה חדשה? לחצי כאן להרשמה</p>
@@ -80,12 +70,9 @@
         </div>
     </div>
 
-    <!-- הרקע הכהה מאחורי התפריט -->
     <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-    <!-- אזור הפוטר החדש (החלק התחתון של האתר) -->
     <footer id="footer">
-        <!-- עמודה 1: תפריט ראשי -->
         <div class="footer-col">
             <h4>תפריט ראשי</h4>
             <ul>
@@ -94,8 +81,6 @@
                 <li><a href="appointments.html">קביעת תור</a></li>
             </ul>
         </div>
-
-        <!-- עמודה 2: תקנון -->
         <div class="footer-col">
             <h4>תקנון</h4>
             <ul>
@@ -104,8 +89,6 @@
                 <li><a href="#">מדיניות משלוחים, ביטולים והחזרות</a></li>
             </ul>
         </div>
-
-        <!-- עמודה 3: צרו קשר -->
         <div class="footer-col">
             <h4>צרו קשר</h4>
             <ul>
@@ -114,10 +97,8 @@
                 <li>א'-ה' 08:30 - 19:30</li>
             </ul>
         </div>
-
-        <!-- עמודה 4: לוגו -->
         <div class="footer-col" style="text-align: left;">
-            <h2 style="margin:0; font-weight: 300; letter-spacing: 2px;">PEAU NETTE</h2>
+            <img src="logo.png" alt="לוגו PEAU NETTE" style="height: 50px; margin-bottom: 10px;">
             <p style="font-size: 14px; margin-top: 5px; color: #6B6151;">REFRESH . REVIVE . RADIATE</p>
         </div>
     </footer>
@@ -127,18 +108,15 @@
             document.getElementById("loginSidebar").style.right = "0";
             document.getElementById("overlay").style.display = "block";
         }
-
         function closeSidebar() {
             document.getElementById("loginSidebar").style.right = "-400px";
             document.getElementById("overlay").style.display = "none";
         }
-
         function toggleForms(sectionId) {
             document.getElementById("loginSection").style.display = "none";
             document.getElementById("registerSection").style.display = "none";
             document.getElementById(sectionId).style.display = "block";
         }
-
         function showOtp() {
             document.getElementById("otpInput").style.display = "block";
         }
