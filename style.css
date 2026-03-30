@@ -1,53 +1,58 @@
+/* יבוא פונט Assistant מגוגל */
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
 
+/* הגדרות כלליות - מבטיח שהפוטר תמיד יישאר למטה! */
 body {
     font-family: 'Assistant', sans-serif;
-    background-color: #fdfaf6; /* עברנו לרקע בהיר יותר וניקי */
+    background-color: #fdfaf6;
     color: #594F45;
     text-align: center;
     margin: 0;
     padding: 0;
-    min-height: 150vh; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* מגדיר שהאתר תופס לפחות את כל גובה המסך */
 }
 
 /* --- הדר (Header) ממורכז וייחודי --- */
 header {
     background-color: #fdfaf6;
-    padding: 30px 20px 15px; /* יותר ריווח למעלה */
+    padding: 30px 20px 15px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 15px rgba(89, 79, 69, 0.05); /* צל עדין יותר */
+    box-shadow: 0 4px 15px rgba(89, 79, 69, 0.05);
     display: flex;
-    flex-direction: column; /* מסדר את הלוגו מעל התפריט */
+    flex-direction: column;
     align-items: center;
 }
 
-/* אזור הלוגו - עכשיו במרכז! */
+/* אזור הלוגו במרכז */
 .header-logo {
     margin-bottom: 20px;
 }
 
 .header-logo img.main-logo {
-    height: 90px; /* לוגו גדול ומרשים יותר */
+    height: 90px;
     width: auto;
     display: block;
 }
 
-/* תפריט ניווט ממורכז תחת הלוגו */
+/* תפריט ניווט ממורכז */
 .header-nav {
     display: flex;
-    gap: 40px; /* ריווח גדול יותר ואלגנטי */
+    gap: 40px;
     align-items: center;
     width: 100%;
     justify-content: center;
     position: relative;
+    max-width: 1000px;
 }
 
 .header-nav a {
     text-decoration: none;
-    color: #6B6151; /* צבע מעט רך יותר */
-    font-weight: 400; /* פונט דק ויוקרתי יותר */
+    color: #6B6151;
+    font-weight: 400;
     font-size: 18px;
     letter-spacing: 1px;
     transition: color 0.3s, transform 0.3s;
@@ -56,23 +61,23 @@ header {
 .header-nav a:hover {
     color: #594F45;
     font-weight: 600;
-    transform: translateY(-2px); /* אפקט ריחוף עדין */
+    transform: translateY(-2px);
 }
 
 /* כפתור אזור אישי בתוך התפריט */
 .login-btn-nav {
-    position: absolute; /* ממקם אותו בצד ימין למרות שהתפריט במרכז */
-    right: 40px;
+    position: absolute;
+    right: 20px;
     background-color: transparent;
     color: #594F45;
     border: 1px solid #AA9C88;
     padding: 8px 20px;
-    border-radius: 30px; /* כפתור עגול ואלגנטי */
+    border-radius: 30px;
     cursor: pointer;
     font-family: inherit;
     font-size: 16px;
     transition: all 0.3s;
-    margin: 0; /* מבטל את המרווח העליון הרגיל של כפתורים */
+    margin: 0;
 }
 
 .login-btn-nav:hover {
@@ -82,18 +87,22 @@ header {
 
 /* --- אזור מרכזי (Main) --- */
 main {
-    padding: 80px 20px;
-    background-color: #E5DED8; /* אזור הגיבור מקבל את הרקע הכהה יותר */
+    padding: 60px 20px;
+    background-color: #E5DED8;
     margin: 40px auto;
+    width: 90%;
     max-width: 900px;
-    border-radius: 40px 40px 0 0; /* צורה מעוגלת למעלה (כמו הלוגו) */
+    border-radius: 40px 40px 0 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 main h2 {
-    font-size: 3em;
+    font-size: 2.8em;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #594F45;
 }
 
@@ -116,15 +125,15 @@ button.primary-btn:hover {
     background-color: #6B6151;
 }
 
-/* --- עיצוב הפוטר (החלק התחתון) מותאם --- */
+/* --- עיצוב הפוטר (החלק התחתון) --- */
 footer {
-    background-color: #AA9C88; /* פוטר מודגש בצבע המיתוג */
+    background-color: #AA9C88;
     color: #fdfaf6;
     padding: 60px 50px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 80px;
+    margin-top: auto; /* זה מה שמכריח את הפוטר להישאר תמיד למטה! */
     text-align: right;
 }
 
@@ -138,16 +147,189 @@ footer {
     display: inline-block;
 }
 
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .footer-col ul li, .footer-col p {
-    color: rgba(253, 250, 246, 0.8);
+    color: rgba(253, 250, 246, 0.9);
+    margin-bottom: 10px;
 }
 
 .footer-col ul li a {
-    color: rgba(253, 250, 246, 0.8);
+    text-decoration: none;
+    color: rgba(253, 250, 246, 0.9);
+    transition: color 0.3s;
 }
 
 .footer-col ul li a:hover {
     color: #fdfaf6;
+    font-weight: bold;
 }
 
-/* ... השאירי כאן את שאר העיצובים של התפריט הצדדי והטפסים שיש לך כרגע בקובץ (sidebar, overlay, forms וכו') ... */
+/* --- עיצוב התפריט הצדדי (התחברות/הרשמה) --- */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; 
+    width: 350px;
+    height: 100%;
+    background-color: #fdfaf6;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.4s ease;
+    z-index: 1000;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    text-align: right;
+    overflow-y: auto;
+}
+
+.close-btn {
+    background: none;
+    color: #594F45;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.close-btn:hover {
+    color: #000;
+    background: none;
+}
+
+.form-section h2 {
+    color: #594F45;
+    margin-bottom: 5px;
+}
+
+.side-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.side-form input, .side-form select {
+    padding: 12px;
+    border: 1px solid #AA9C88;
+    border-radius: 5px;
+    font-family: inherit;
+    color: #594F45;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.side-form button {
+    background-color: #594F45;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.side-form button:hover {
+    background-color: #6B6151;
+}
+
+.switch-link {
+    color: #6B6151;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.switch-link:hover {
+    color: #594F45;
+    font-weight: bold;
+}
+
+/* --- חנות מוצרים --- */
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.product-card {
+    background-color: #fdfaf6;
+    border: 1px solid #AA9C88;
+    border-radius: 8px;
+    padding: 20px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-image {
+    width: 100%;
+    height: 180px;
+    background-color: #E5DED8;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #AA9C88;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    color: #594F45;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #6B6151;
+    margin-bottom: 15px;
+}
+
+.product-card .price {
+    font-weight: bold;
+    font-size: 20px;
+    color: #594F45;
+    margin-bottom: 15px;
+}
+
+.product-card button {
+    margin-top: auto; 
+    width: 100%;
+    background-color: #AA9C88;
+    color: #fdfaf6;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.product-card button:hover {
+    background-color: #594F45;
+}
