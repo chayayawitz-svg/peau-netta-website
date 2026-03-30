@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEAU NETTE - חנות מוצרים</title>
+    <title>PEAU NETTE - קולקציית מוצרים</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <header>
         <div class="header-logo">
             <a href="index.html">
-                <img src="logo.png.png" alt="לוגו PEAU NETTE" class="main-logo">
+                <img src="logo.png" alt="לוגו PEAU NETTE" class="main-logo">
             </a>
         </div>
         <nav class="header-nav">
@@ -19,17 +19,13 @@
             <a href="products.html">קולקציית מוצרים</a>
             <a href="appointments.html">קביעת תור</a>
             <a href="#footer">צור קשר</a>
+            <button class="login-btn-nav" onclick="openSidebar()">אזור אישי</button>
         </nav>
-        <div class="header-icons">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <svg onclick="openSidebar()" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-        </div>
     </header>
 
-    <main style="padding: 40px 20px;">
-        <h2 style="font-weight: 300;">המוצרים שלנו</h2>
-        <p>שגרת הטיפוח המושלמת בשבילך, עכשיו זמינה לרכישה קלה ומהירה.</p>
+    <main>
+        <h2>המוצרים שלנו</h2>
+        <p style="color: #6B6151;">שגרת הטיפוח המושלמת בשבילך, עכשיו זמינה לרכישה קלה ומהירה.</p>
 
         <div class="products-grid">
             <div class="product-card">
@@ -80,7 +76,7 @@
                 <input type="text" placeholder="שם מלא" required>
                 <input type="tel" placeholder="טלפון נייד" required>
                 <input type="email" placeholder="כתובת אימייל" required>
-                <label>תאריך לידה:</label>
+                <label style="color: #594F45; font-weight: bold; text-align: right;">תאריך לידה:</label>
                 <input type="date" required>
                 <button type="button">שמירת פרטים</button>
             </form>
@@ -103,7 +99,7 @@
             <ul>
                 <li><a href="#">הצהרת נגישות</a></li>
                 <li><a href="#">תקנון אתר</a></li>
-                <li><a href="#">מדיניות משלוחים, ביטולים והחזרות</a></li>
+                <li><a href="#">מדיניות משלוחים וביטולים</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -115,8 +111,8 @@
             </ul>
         </div>
         <div class="footer-col" style="text-align: left;">
-            <img src="logo.png" alt="לוגו PEAU NETTE" style="height: 50px; margin-bottom: 10px;">
-            <p style="font-size: 14px; margin-top: 5px; color: #6B6151;">REFRESH . REVIVE . RADIATE</p>
+            <img src="logo.png" alt="לוגו PEAU NETTE" style="height: 70px; margin-bottom: 10px; filter: brightness(0) invert(1);">
+            <p style="font-size: 14px; margin-top: 5px;">REFRESH . REVIVE . RADIATE</p>
         </div>
     </footer>
 
