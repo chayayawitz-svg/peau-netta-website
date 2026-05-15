@@ -1,94 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
-
-body {
-    font-family: 'Assistant', sans-serif;
-    margin: 0; padding: 0;
-    background-color: #fdfaf6;
-    color: #594F45;
-}
-
-/* --- תפריט עליון מורכב --- */
+/* --- תפריט עליון יוקרתי ומדויק --- */
 header {
     background-color: #fdfaf6;
-    padding: 15px 50px;
-    position: sticky; top: 0; z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.header-container {
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    max-width: 1200px; margin: 0 auto;
 }
 
-.header-left { display: flex; gap: 20px; align-items: center; flex: 1; }
-.login-icon { font-size: 20px; cursor: pointer; color: #594F45; }
-.lang-switch { cursor: pointer; font-weight: bold; border: 1px solid #AA9C88; padding: 2px 8px; border-radius: 4px; }
-
-.header-center { flex: 1; text-align: center; }
-.main-logo { height: 70px; width: auto; }
-
-.header-nav { display: flex; gap: 25px; flex: 1; justify-content: flex-end; }
-.header-nav a { text-decoration: none; color: #594F45; font-weight: 600; }
-
-/* --- סרטון רקע --- */
-.hero-video {
-    position: relative; height: 60vh; overflow: hidden;
+/* עיצוב הלוגו - קטן ועדין */
+.logo-wrapper {
+    margin-bottom: 15px;
 }
 
-#bg-video {
-    position: absolute; top: 50%; left: 50%;
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+.main-logo {
+    height: 45px; /* הגודל המוקטן שביקשת */
+    width: auto;
+    display: block;
 }
 
-.hero-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.3);
-    display: flex; align-items: center; justify-content: center;
+/* שורת התפריט המאוחדת */
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* דוחף את הצדדים לקצוות */
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* שומר על התפריט ברוחב נעים לעין */
 }
 
-.hero-overlay h1 { color: white; font-size: 3em; letter-spacing: 5px; font-weight: 300; }
-
-/* --- אני מאמין --- */
-.about-section { padding: 80px 20px; text-align: center; }
-.about-container { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
-.personal-img { width: 300px; height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 10px 10px 0 #AA9C88; }
-.credo-text { font-size: 1.8em; font-style: italic; line-height: 1.5; color: #594F45; }
-.signature { margin-top: 20px; font-weight: bold; border-top: 1px solid #AA9C88; display: inline-block; padding-top: 10px; }
-
-/* --- פופ אפ --- */
-.popup-overlay {
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;
+/* צד שמאל: התחברות ושפה */
+.nav-left {
+    display: flex;
+    gap: 18px;
+    align-items: center;
 }
 
-.popup-content {
-    background: white; padding: 40px; border-radius: 15px; text-align: center; width: 90%; max-width: 400px; position: relative;
+.login-icon {
+    font-size: 18px;
+    cursor: pointer;
+    color: #594F45;
+    transition: color 0.3s;
 }
 
-.close-popup { position: absolute; top: 15px; left: 20px; font-size: 28px; cursor: pointer; }
-
-/* --- כפתור וואטסאפ צף --- */
-.whatsapp-float {
-    position: fixed; bottom: 80px; left: 30px;
-    background-color: #25d366; color: white;
-    width: 60px; height: 60px; border-radius: 50px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1500;
+.lang-switch {
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #594F45;
+    letter-spacing: 1px;
 }
 
-/* --- פוטר ונגישות --- */
-footer { background-color: #594F45; color: white; padding: 50px 20px; }
-.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: right; }
-.footer-col h4 { border-bottom: 1px solid #AA9C88; padding-bottom: 10px; }
-.footer-col ul { list-style: none; padding: 0; }
-.footer-col ul li a { color: #E5DED8; text-decoration: none; display: block; margin-bottom: 10px; }
-.social-icons { display: flex; gap: 15px; font-size: 24px; margin-top: 10px; }
-.social-icons a { color: white; }
+/* צד ימין: קישורי הניווט */
+.nav-right {
+    display: flex;
+    gap: 30px;
+}
 
-.accessibility-bar { background: #333; color: white; padding: 10px; text-align: center; width: 100%; }
-.accessibility-bar button { background: #AA9C88; border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 4px; }
+.nav-right a {
+    text-decoration: none;
+    color: #594F45;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s;
+}
+
+.nav-right a:hover {
+    opacity: 0.7;
+}
+
+/* התאמה לנייד - שומר על סימטריה */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column-reverse; /* בנייד השפה תהיה מתחת לקישורים */
+        gap: 15px;
+    }
+    .nav-right {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
