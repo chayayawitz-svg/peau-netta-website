@@ -5,113 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PEAU NETTE - קליניקה לקוסמטיקה</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="header-logo">
-            <a href="index.html">
-                <img src="logo.png" alt="לוגו PEAU NETTE" class="main-logo">
-            </a>
+        <div class="header-container">
+            <div class="header-left">
+                <i class="fas fa-user login-icon" onclick="openPopup()" title="התחברות"></i>
+                <span class="lang-switch">EN</span>
+            </div>
+
+            <div class="header-center">
+                <a href="index.html">
+                    <img src="logo.png" alt="לוגו PEAU NETTE" class="main-logo">
+                </a>
+            </div>
+
+            <nav class="header-nav">
+                <a href="treatments.html">טיפולים</a>
+                <a href="#" onclick="openPopup()">מועדון לקוחות</a>
+                <a href="about.html">אודות</a>
+                <a href="#footer">צור קשר</a>
+            </nav>
         </div>
-        
-        <nav class="header-nav">
-            <a href="index.html">עמוד הבית</a>
-            <a href="products.html">קולקציית מוצרים</a>
-            <a href="appointments.html">קביעת תור</a>
-            <a href="#footer">צור קשר</a>
-            
-            <button class="login-btn-nav" onclick="openSidebar()">אזור אישי</button>
-        </nav>
     </header>
 
-    <main>
-        <h2>העור הנקי שלך מתחיל כאן.</h2>
-        <p style="font-size: 1.2em; color: #6B6151; margin-bottom: 20px;">קבעי תורים, רכשי מוצרים והצטרפי למועדון הלקוחות שלנו.</p>
-        <a href="appointments.html">
-            <button class="primary-btn">לקביעת תור</button>
-        </a>
+    <section class="hero-video">
+        <video autoplay muted loop id="bg-video">
+            <source src="background-video.mp4" type="video/mp4">
+            </video>
+        <div class="hero-overlay">
+            <h1>REFRESH . REVIVE . RADIATE</h1>
+        </div>
+    </section>
+
+    <main class="about-section">
+        <div class="about-container">
+            <img src="personal-photo.jpg" alt="אליהו ראני" class="personal-img">
+            <div class="about-text">
+                <p class="credo-text">
+                    "אני מאמין שכל טיפול הוא חוויה - לא רק של טיפוח, אלא של חיבור, איזון ושלווה פנימית."
+                </p>
+                <div class="signature">
+                    <p>אליהו ראני |eliyahu reani</p>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- התפריט הצדדי -->
-    <div id="loginSidebar" class="sidebar">
-        <button class="close-btn" onclick="closeSidebar()">✕</button>
-        
-        <div id="loginSection" class="form-section">
-            <h2>התחברות</h2>
-            <p>שמחים שחזרת אלינו!</p>
-            <form class="side-form">
+    <div id="clubPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <h2>מועדון הלקוחות שלנו</h2>
+            <p>הצטרפי לקהילה שלנו ותיהני מהטבות בלעדיות!</p>
+            <form class="popup-form">
                 <input type="text" placeholder="שם מלא" required>
                 <input type="tel" placeholder="טלפון נייד" required>
-                <div id="otpInput" style="display: none; margin-top: 15px;">
-                    <label>הקלידי את הקוד שקיבלת לנייד:</label>
-                    <input type="text" placeholder="123456">
-                </div>
-                <button type="button" onclick="showOtp()">שלחו לי קוד SMS</button>
+                <button type="submit" class="primary-btn">הרשמה / התחברות</button>
             </form>
-            <p class="switch-link" onclick="toggleForms('registerSection')">לקוחה חדשה? לחצי כאן להרשמה</p>
-        </div>
-
-        <div id="registerSection" class="form-section" style="display: none;">
-            <h2>הרשמה למועדון</h2>
-            <p>מלאי את הפרטים כדי שנוכל לפנק אותך!</p>
-            <form class="side-form">
-                <input type="text" placeholder="שם מלא" required>
-                <input type="tel" placeholder="טלפון נייד" required>
-                <input type="email" placeholder="כתובת אימייל" required>
-                <label style="color: #594F45; font-weight: bold; text-align: right;">תאריך לידה:</label>
-                <input type="date" required>
-                <button type="button">שמירת פרטים</button>
-            </form>
-            <p class="switch-link" onclick="toggleForms('loginSection')">כבר חברה במועדון? לחצי כאן להתחברות</p>
         </div>
     </div>
-    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
-    <!-- פוטר נקי ללא הלוגו משמאל -->
+    <a href="https://wa.me/972528404110" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <footer id="footer">
-        <div class="footer-col">
-            <h4>תפריט ראשי</h4>
-            <ul>
-                <li><a href="index.html">עמוד הבית</a></li>
-                <li><a href="products.html">קולקציית מוצרים</a></li>
-                <li><a href="appointments.html">קביעת תור</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>תקנון</h4>
-            <ul>
-                <li><a href="#">הצהרת נגישות</a></li>
-                <li><a href="#">תקנון אתר</a></li>
-                <li><a href="#">מדיניות משלוחים וביטולים</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>צרו קשר</h4>
-            <ul>
-                <li>05X-XXXXXXX</li>
-                <li>info@peaunette.co.il</li>
-                <li>א'-ה' 08:30 - 19:30</li>
-            </ul>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>תפריט</h4>
+                <ul>
+                    <li><a href="index.html">דף הבית</a></li>
+                    <li><a href="treatments.html">טיפולים</a></li>
+                    <li><a href="about.html">אודות</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>חוקים</h4>
+                <ul>
+                    <li><a href="accessibility.html">הצהרת נגישות</a></li>
+                    <li><a href="privacy.html">מדיניות פרטיות</a></li>
+                    <li><a href="terms.html">תקנון אתר</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>צור קשר</h4>
+                <p><i class="fas fa-envelope"></i> peaunetteclinic@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 052-8404110</p>
+            </div>
+            <div class="footer-col">
+                <h4>עקבו אחרינו</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <div class="accessibility-bar">
+        <button onclick="toggleAccessibility()">תפריט נגישות <i class="fas fa-wheelchair"></i></button>
+    </div>
+
     <script>
-        function openSidebar() {
-            document.getElementById("loginSidebar").style.right = "0";
-            document.getElementById("overlay").style.display = "block";
-        }
-        function closeSidebar() {
-            document.getElementById("loginSidebar").style.right = "-400px";
-            document.getElementById("overlay").style.display = "none";
-        }
-        function toggleForms(sectionId) {
-            document.getElementById("loginSection").style.display = "none";
-            document.getElementById("registerSection").style.display = "none";
-            document.getElementById(sectionId).style.display = "block";
-        }
-        function showOtp() {
-            document.getElementById("otpInput").style.display = "block";
+        function openPopup() { document.getElementById("clubPopup").style.display = "flex"; }
+        function closePopup() { document.getElementById("clubPopup").style.display = "none"; }
+        window.onclick = function(event) {
+            let popup = document.getElementById("clubPopup");
+            if (event.target == popup) popup.style.display = "none";
         }
     </script>
 </body>
