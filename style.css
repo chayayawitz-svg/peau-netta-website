@@ -1,167 +1,94 @@
-/* יבוא פונט Assistant מגוגל */
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
 
-/* הגדרות כלליות */
 body {
     font-family: 'Assistant', sans-serif;
+    margin: 0; padding: 0;
     background-color: #fdfaf6;
     color: #594F45;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
 }
 
-/* --- הדר (Header) ממורכז --- */
+/* --- תפריט עליון מורכב --- */
 header {
     background-color: #fdfaf6;
-    padding: 30px 20px 15px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 15px rgba(89, 79, 69, 0.05);
+    padding: 15px 50px;
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    max-width: 1200px; margin: 0 auto;
 }
 
-.header-logo img.main-logo {
-    height: 90px;
-    width: auto;
-    display: block;
+.header-left { display: flex; gap: 20px; align-items: center; flex: 1; }
+.login-icon { font-size: 20px; cursor: pointer; color: #594F45; }
+.lang-switch { cursor: pointer; font-weight: bold; border: 1px solid #AA9C88; padding: 2px 8px; border-radius: 4px; }
+
+.header-center { flex: 1; text-align: center; }
+.main-logo { height: 70px; width: auto; }
+
+.header-nav { display: flex; gap: 25px; flex: 1; justify-content: flex-end; }
+.header-nav a { text-decoration: none; color: #594F45; font-weight: 600; }
+
+/* --- סרטון רקע --- */
+.hero-video {
+    position: relative; height: 60vh; overflow: hidden;
 }
 
-.header-nav {
-    display: flex;
-    gap: 40px;
-    margin-top: 20px;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    flex-wrap: wrap; /* מאפשר לקישורים לרדת שורה אם אין מקום */
+#bg-video {
+    position: absolute; top: 50%; left: 50%;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
-.header-nav a {
-    text-decoration: none;
-    color: #6B6151;
-    font-size: 18px;
-    white-space: nowrap; /* מונע מהטקסט של קישור בודד להישבר */
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
 }
 
-.login-btn-nav {
-    position: absolute;
-    right: 20px;
-    background: none;
-    border: 1px solid #AA9C88;
-    padding: 8px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: inherit;
-    color: #594F45;
+.hero-overlay h1 { color: white; font-size: 3em; letter-spacing: 5px; font-weight: 300; }
+
+/* --- אני מאמין --- */
+.about-section { padding: 80px 20px; text-align: center; }
+.about-container { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+.personal-img { width: 300px; height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 10px 10px 0 #AA9C88; }
+.credo-text { font-size: 1.8em; font-style: italic; line-height: 1.5; color: #594F45; }
+.signature { margin-top: 20px; font-weight: bold; border-top: 1px solid #AA9C88; display: inline-block; padding-top: 10px; }
+
+/* --- פופ אפ --- */
+.popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center;
 }
 
-/* --- התאמה לנייד (Media Query) --- */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 10px;
-    }
-
-    .header-logo img.main-logo {
-        height: 60px; /* לוגו קצת יותר קטן בנייד */
-    }
-
-    .header-nav {
-        gap: 15px; /* מרווח קטן יותר בין הקישורים */
-        margin-top: 15px;
-    }
-
-    .header-nav a {
-        font-size: 15px; /* פונט מעט קטן יותר */
-    }
-
-    .login-btn-nav {
-        position: static; /* מבטל את המיקום הקבוע שגורם לכפתור לקפוץ מעל טקסט */
-        margin-top: 15px;
-        width: fit-content;
-    }
+.popup-content {
+    background: white; padding: 40px; border-radius: 15px; text-align: center; width: 90%; max-width: 400px; position: relative;
 }
 
-/* --- אזור מרכזי (Main) --- */
-main {
-    padding: 40px 20px;
-    background-color: #E5DED8;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+.close-popup { position: absolute; top: 15px; left: 20px; font-size: 28px; cursor: pointer; }
+
+/* --- כפתור וואטסאפ צף --- */
+.whatsapp-float {
+    position: fixed; bottom: 80px; left: 30px;
+    background-color: #25d366; color: white;
+    width: 60px; height: 60px; border-radius: 50px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1500;
 }
 
-main h2 {
-    font-size: 2.2em;
-    font-weight: 300;
-    color: #594F45;
-}
-
-/* --- טופס קביעת תור --- */
-.appointment-form {
-    width: 100%;
-    max-width: 380px; 
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    gap: 8px;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #AA9C88;
-    border-radius: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-button.primary-btn {
-    background-color: #594F45;
-    color: #E5DED8;
-    border: none;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* פוטר */
-footer {
-    background-color: #AA9C88;
-    color: #fdfaf6;
-    padding: 30px 20px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: auto;
-    text-align: right;
-    gap: 20px;
-}
-
-.footer-col h4 { margin-bottom: 10px; }
+/* --- פוטר ונגישות --- */
+footer { background-color: #594F45; color: white; padding: 50px 20px; }
+.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: right; }
+.footer-col h4 { border-bottom: 1px solid #AA9C88; padding-bottom: 10px; }
 .footer-col ul { list-style: none; padding: 0; }
-.footer-col a { color: white; text-decoration: none; }
+.footer-col ul li a { color: #E5DED8; text-decoration: none; display: block; margin-bottom: 10px; }
+.social-icons { display: flex; gap: 15px; font-size: 24px; margin-top: 10px; }
+.social-icons a { color: white; }
 
-/* תפריט צדדי */
-.sidebar { position: fixed; top: 0; right: -400px; width: 300px; height: 100%; background: white; transition: 0.4s; z-index: 1000; padding: 30px; box-sizing: border-box; text-align: right; }
-.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
+.accessibility-bar { background: #333; color: white; padding: 10px; text-align: center; width: 100%; }
+.accessibility-bar button { background: #AA9C88; border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 4px; }
